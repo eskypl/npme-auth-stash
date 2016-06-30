@@ -16,7 +16,6 @@ var API_ROUTES = {
 
 function StashClient(_host, _user, _pass) {
     var self = this;
-
     this.baseUrl = url.resolve(_host, API_BASE_PATH);
     this.auth = {
         user: _user,

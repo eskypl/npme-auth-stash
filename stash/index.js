@@ -10,9 +10,9 @@ try {
 var config = _.assign({
     logFile: '/etc/npme/logs/npme-auth-atlassian-stash.log',
     logLevel: 'warn',
-    host: null,
-    user: null,
-    pass: null
+    host: process.env.stash_host,
+    user: process.env.stash_user,
+    pass: process.env.stash_pass
 }, loadedConfig);
 
 _.extend(exports, config);
