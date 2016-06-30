@@ -5,35 +5,37 @@ npm Enterprise.
 
 ## Installation
 
-Install `npme-auth-atlassian-stash` were you have installed npmE.
-By default npmE is installed in `/etc/npme`.
+Install `npme-auth-atlassian-stash` in `npme`'s data directory
+by default this can be found in `/usr/local/lib/npme/data`.
 
 ```
-npm install npme-auth-atlassian-stash
+npm install `@bcoe/npme-auth-atlassian-stash`
 ```
 
 ## Configuration
 
-This module will use `.stashrc` file which yous should create in the
-main directory of npmE. Example configuration:
+This module will use `stash.json` which you should create in `npme`'s
+data directory (by default this can be found in `/usr/local/lib/npme/data`).
 
-```
-host=https://stash.domain.com
-user=npme
-pass=npmepass
-logFile=/etc/npme/logs/npme-auth-atlassian-stash.log
-logLevel=error
+```json
+{
+  "host": "https://stash.domain.com",
+  "user": "npme",
+  "pass": "npmepass",
+  "logFile": "/etc/npme/data/npme-auth-atlassian-stash.log",
+  "logLevel": "info"
+}
 ```
 
 * **host**: your Stash repository
-* **name**: Stash user login used for Basic authorization
-* **pass**: Stash user password
+* **name**: admin stash user login used for Basic authorization
+* **pass**: admin stash user password
 * **logFile**: location of module log file
 * **logLevel**: logging level
 
 ### Stash user
 
-`npme-auth-atlassian-stash` will use Stash account to get information
+`npme-auth-atlassian-stash` will use the admin Stash account to get information
 about users, groups, projects and repositories. This account should
 be created only for the purpose of `npme-auth-atlassian-stash` and
 should have administrative privileges to be able to acquire needed
